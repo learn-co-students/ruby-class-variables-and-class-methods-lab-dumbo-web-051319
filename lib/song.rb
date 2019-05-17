@@ -20,22 +20,28 @@ class Song
     @@count      #class variable 
   end 
  
+def self.genre_count
+    genre_count = {}
+    @@genres.each do |genre|
+      if genre_count[genre]
+        genre_count[genre] += 1 
+      else
+        genre_count[genre] = 1
+      end
+    end
+    genre_count
+  end
  
- def self.genre_count #returns a hash of genres and the number of songs
-  genre_count = {} #returns a hash 
-  self.all.map do |song|
-    song.genre.count 
-  end 
-end 
+def self.artist_count
+    artist_count = {}
+    @@artists.each do |artist|
+      if artist_count[artist]
+        artist_count[artist] += 1 
+      else
+        artist_count[artist] = 1
+      end
+    end
+    artist_count
+  end
   
-  # def self.genres #class method that returns an array of all genres of the existin songs
-  #   @@genres.unique 
-  # end 
-  
-  # def self.artists #class method that returns an array of all artists of the existin songs 
-  #                 #with only UNIQUE artists
-  #   @@artists.unique 
-  
-  # end 
-
 end
